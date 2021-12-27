@@ -15,12 +15,13 @@ options.add_argument(
 driver = webdriver.Chrome(options=options)
 
 try:
+    # ログイン
     driver.get("https://moneyforward.com/sign_in")
-    driver.find_element_by_class_name("_11ZPO93b").click()
-    driver.find_element_by_name("mfid_user[email]").send_keys(email)
-    driver.find_element_by_class_name("submitBtn").click()
-    driver.find_element_by_name("mfid_user[password]").send_keys(pw)
-    driver.find_element_by_class_name("submitBtn").click()
+    driver.find_element(By.XPATH, '//*[text()="メールアドレスでログイン"]').click()
+    driver.find_element(By.XPATH, '//*[@name="mfid_user[email]"]').send_keys(email)
+    driver.find_element(By.XPATH, '//*[contains(@class,"submitBtn")]').click()
+    driver.find_element(By.XPATH, '//*[@name="mfid_user[password]"]').send_keys(pw)
+    driver.find_element(By.XPATH, '//*[contains(@class,"submitBtn")]').click()
 
     # 更新
     driver.get("https://moneyforward.com/accounts")
