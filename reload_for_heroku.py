@@ -18,7 +18,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 
 driver.get("https://moneyforward.com/sign_in")
-driver.find_element_by_class_name("_11ZPO93b").click()
+driver.find_element(By.XPATH, '//*[text()="メールアドレスでログイン"]').click()
 driver.find_element_by_name("mfid_user[email]").send_keys(email)
 driver.find_element_by_class_name("submitBtn").click()
 driver.find_element_by_name("mfid_user[password]").send_keys(pw)
